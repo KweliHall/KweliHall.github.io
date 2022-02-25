@@ -3,3 +3,52 @@
 Connect with me on [Github](https://github.com/KweliHall)
 
 
+
+
+export const Thing = () =>  
+   <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <p>
+            <label>Your Name: 
+            <input type="text" placeholder="Enter your name" name="name"/>
+            </label>
+          </p>
+          <p>
+            <label>Your Email: 
+            <input type="text" placeholder="Enter your email" name="email"/>
+            </label>
+          </p>
+          <p>
+            <label>Message: 
+            <textarea placeholder="Enter your Message" name="message"></textarea>
+            </label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
+        </form>
+;
+
+<Thing />
+
+export const handleSubmit = (e) => {
+  e.preventDefault();
+  let myForm = document.getElementById("pizzaOrder");
+  let formData = new FormData(myForm);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+};
+
+
+
+
+
+
+
+
+
+
